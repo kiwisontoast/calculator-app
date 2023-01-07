@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <style type="text/css">
+        @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: sans-serif;
+            place-items: center;
+            
+	background: linear-gradient(-45deg, #ef767a, #456990, #49beaa, #eeb868);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+
+        }
+
+        #buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            font-size: 25px;
+        }
+
+        #buttons-container button {
+
+            width: 25%;
+            height: 60px;
+            font-size: 1.5em;
+            background: #eb4d4b;
+            margin: 5px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            flex-basis: 25%;
+            background-color: #fff;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #calculator {
+            position: relative;
+            margin-top: 8vh;
+            margin-left: 35vw;
+  width: 500px;
+  height: 600px;
+  display: grid;
+  place-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+        }
+
+        #calculator #result {
+            
+            width: 85%;
+            height: 80px;
+            background: #05668d;
+            opacity: 0.8;
+            margin-left: 2vw;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: right;
+            padding: 10px;
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        #calculator button {
+            flex-basis: 25%;
+            opacity: 0.8;
+            width: 25%;
+            height: 60px;
+            font-size: 1.5em;
+            background: #028090;
+            margin: 5px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #calculator button:hover {
+            background: #00a896;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calculator">
+        <input type="text" id="result" disabled="disabled" />
+        <div id="buttons-container">
+            <button id="clear">C</button>
+            <button id="del">del</button>
+            <button id="divide">/</button>
+            <button id="seven">7</button>
+            <button id="eight">8</button>
+            <button id="nine">9</button>
+            <button id="multiply">*</button>
+            <button id="four">4</button>
+            <button id="five">5</button>
+            <button id="six">6</button>
+            <button id="subtract">-</button>
+            <button id="one">1</button>
+            <button id="two">2</button>
+            <button id="three">3</button>
+            <button id="add">+</button>
+            <button id="zero">0</button>
+            <button id="decimal">.</button>
+            <button id="equals">=</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let result = document.getElementById("result");
+        let clear = document.getElementById("clear");
+        let del = document.getElementById("del");
+        let divide = document.getElementById("divide");
+        let seven = document.getElementById("seven");
+        let eight = document.getElementById("eight");
+        let nine = document.getElementById("nine");
+        let multiply = document.getElementById("multiply");
+        let four = document.getElementById("four");
+        let five = document.getElementById("five");
+        let six = document.getElementById("six");
+        let subtract = document.getElementById("subtract");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let add = document.getElementById("add");
+        let zero = document.getElementById("zero");
+        let decimal = document.getElementById("decimal");
+        let equals = document.getElementById("equals");
+
+        // Add Event Listeners
+        clear.addEventListener("click", function () {
+            result.value = "";
+        });
+
+        del.addEventListener("click", function () {
+            result.value = result.value.substring(0, result.value.length - 1);
+        });
+
+        divide.addEventListener("click", function () {
+            result.value += "/";
+        });
+
+        seven.addEventListener("click", function () {
+            result.value += "7";
+        });
+
+        eight.addEventListener("click", function () {
+            result.value += "8";
+        });
+
+        nine.addEventListener("click", function () {
+            result.value += "9";
+        });
+
+        multiply.addEventListener("click", function () {
+            result.value += "*";
+        });
+
+        four.addEventListener("click", function () {
+            result.value += "4";
+        });
+
+        five.addEventListener("click", function () {
+            result.value += "5";
+        });
+
+        six.addEventListener("click", function () {
+            result.value += "6";
+        });
+
+        subtract.addEventListener("click", function () {
+            result.value += "-";
+        });
+
+        one.addEventListener("click", function () {
+            result.value += "1";
+        });
+
+        two.addEventListener("click", function () {
+            result.value += "2";
+        });
+
+        three.addEventListener("click", function () {
+            result.value += "3";
+        });
+
+        add.addEventListener("click", function () {
+            result.value += "+";
+        });
+
+        zero.addEventListener("click", function () {
+            result.value += "0";
+        });
+
+        decimal.addEventListener("click", function () {
+            result.value += ".";
+        });
+
+        equals.addEventListener("click", function () {
+            result.value = eval(result.value);
+        });
+    </script>
+</body>
+
+</html>
